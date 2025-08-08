@@ -4,7 +4,22 @@ import { defineConfig } from 'vite';
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react({
+      babel: {
+        plugins: [
+          [
+            '@emotion',
+            {
+              sourceMap: true,
+              autoLabel: 'dev-only',
+              labelFormat: '[local]',
+            },
+          ],
+        ],
+      },
+    }),
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

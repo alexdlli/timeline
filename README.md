@@ -1,69 +1,42 @@
-# React + TypeScript + Vite
+## What you like about your implementation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I felt the process was rushed, and the resulting code is quite complex to maintain. In the future, I would likely dedicate more time to developing a library before integrating it into the project.
+I like that the code is modular and follows a clear structure, which makes it easier to maintain and extend. The use of TypeScript also helps with type safety and clarity in the codebase. The zoom feature adds a nice touch to the user experience, allowing users to focus on specific time periods. I chose Emotion to helps with dynamic styling.
 
-Currently, two official plugins are available:
+## What you would change if you were going to do it again
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I would spend more time on the initial design phase, possibly creating a more detailed prototype before implementation. This might involve more user testing and feedback to ensure the final product meets user needs effectively.
 
-## Expanding the ESLint configuration
+## How you made your design decisions. For example, if you looked at other timelines for inspiration, please note that
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Regarding UI:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- For the UI, I needed to add a zoom feature, so I took inspiration from Notion's timeline. My goal was to create something simple and fast.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Regarding the project structure:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- For the project structure, I used MVVM. It's a pattern I'm very familiar with in my daily work, and it allows for easy maintenance.
+
+## How you would test this if you had more time.
+
+The project's architecture allows for very simple unit testing. I would also do some integration tests in use cases like inserting or deleting items from the timeline, and things like that.
+
+## How to run the project
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/alexdlli/timeline
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+  npm install || npm i
+```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+3. Start the development server
+
+```bash
+npm run dev
 ```
