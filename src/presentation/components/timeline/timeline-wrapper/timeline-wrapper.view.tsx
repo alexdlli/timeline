@@ -6,7 +6,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import {
   DayCell,
-  HeaderGrid,
+  DaysGrid,
   ItemBlock,
   ItemLabel,
   MonthCell,
@@ -51,7 +51,7 @@ function TimeLineWrapperView({
   totalDays,
   monthSegments,
   headerStart,
-  days,
+  dates,
 }: TimeLineViewModel) {
   return (
     <Container aria-label="Project timeline">
@@ -67,36 +67,40 @@ function TimeLineWrapperView({
             </MonthCell>
           ))}
         </MonthGrid>
-        <HeaderGrid
+        <DaysGrid
           aria-label="Days header"
           pxPerDay={pxPerDay}
           totalDays={totalDays}
         >
-          {days.map((d) => (
+          {dates.map((date) => (
             <DayCell
-              aria-label={d.toDateString()}
-              key={d.toISOString()}
-              monthStart={isMonthStart(d)}
-              title={d.toDateString()}
+              aria-label={date.toDateString()}
+              key={date.toISOString()}
+              monthStart={isMonthStart(date)}
+              title={date.toDateString()}
             >
-              {labelForDay(d)}
+              {labelForDay(date)}
             </DayCell>
           ))}
-        </HeaderGrid>
+        </DaysGrid>
         <div css={css({ height: 6 })} />
+
         {items.map((laneItems, laneIndex) => {
           const laneKey =
             laneItems.map((it) => String(it.id)).join('-') ||
             `lane-${laneIndex}`;
+
           const computed = laneItems.map((item) => {
             const leftPx = Math.max(
               0,
               daysDiff(item.start, headerStart) * pxPerDay
             );
+
             const widthPx = Math.max(
               1,
               daysBetweenInclusive(item.start, item.end) * pxPerDay
             );
+
             return { item, leftPx, widthPx };
           });
 

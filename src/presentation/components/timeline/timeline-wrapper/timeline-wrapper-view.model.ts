@@ -13,6 +13,6 @@ export interface TimeLineViewModel {
   pxPerDay: number;
   totalDays: number;
   monthSegments: MonthSegment[];
-  days: Date[];
+  dates: Date[];
   headerStart: string;
 }

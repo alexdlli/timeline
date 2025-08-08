@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const HeaderGrid = styled('div')<{
+export const DaysGrid = styled('div')<{
   totalDays: number;
   pxPerDay: number;
 }>(({ totalDays, pxPerDay }) => ({

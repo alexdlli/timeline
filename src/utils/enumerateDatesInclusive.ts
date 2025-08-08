@@ -1,7 +1,7 @@
 import { daysBetweenInclusive } from './daysBetweenInclusive';
 import { parseDate } from './parseDate';
 
-function enumerateDaysInclusive(start: string, end: string): Date[] {
+function enumerateDatesInclusive(start: string, end: string): Date[] {
   const result: Date[] = [];
   const startDate = parseDate(start);
   const count = daysBetweenInclusive(start, end);
@@ -12,4 +12,4 @@ function enumerateDaysInclusive(start: string, end: string): Date[] {
   return result;
 }
 
-export { enumerateDaysInclusive };
+export { enumerateDatesInclusive };

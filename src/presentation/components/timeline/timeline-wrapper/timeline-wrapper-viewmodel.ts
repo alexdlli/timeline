@@ -4,7 +4,7 @@ import { assignLanes } from '@/utils/assignLanes';
 import { computeMonthSegments } from '@/utils/computeMonthSegments';
 import { daysBetweenInclusive } from '@/utils/daysBetweenInclusive';
 import { endOfMonth } from '@/utils/endOfMonth';
-import { enumerateDaysInclusive } from '@/utils/enumerateDaysInclusive';
+import { enumerateDatesInclusive } from '@/utils/enumerateDatesInclusive';
 import { parseDate } from '@/utils/parseDate';
 import { startOfMonth } from '@/utils/startOfMonth';
 import type {
@@ -33,8 +33,8 @@ function useTimeLineViewViewModel({
   const headerEnd = endOfMonth(maxEnd);
   const totalDays = daysBetweenInclusive(headerStart, headerEnd);
   const totalWidthPx = totalDays * pxPerDay + laneGapPx * 2;
-  const days = enumerateDaysInclusive(headerStart, headerEnd);
-  const monthSegments = computeMonthSegments(days);
+  const dates = enumerateDatesInclusive(headerStart, headerEnd);
+  const monthSegments = computeMonthSegments(dates);
 
   const lanes = assignLanes(timelineItems) as TimeLineItem[][];
 
@@ -47,7 +47,7 @@ function useTimeLineViewViewModel({
     totalDays,
     headerStart,
     monthSegments,
-    days,
+    dates,
   };
 }
 

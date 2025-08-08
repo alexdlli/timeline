@@ -5,7 +5,7 @@ I like that the code is modular and follows a clear structure, which makes it ea
 
 ## What you would change if you were going to do it again
 
-I would spend more time on the initial design phase, possibly creating a more detailed prototype before implementation. This might involve more user testing and feedback to ensure the final product meets user needs effectively.
+I would spend more time on the initial design phase, possibly creating a more detailed prototype before implementation. This might involve more user testing and feedback to ensure the final product meets user needs effectively. I would consider splitting the components into smaller ones to improve performance.
 
 ## How you made your design decisions. For example, if you looked at other timelines for inspiration, please note that
 
